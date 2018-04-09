@@ -28,8 +28,16 @@
     img.src = canvas.toDataURL('image/webp');
   };
 
+  const constraints = {
+    video: true
+  };
+  
   function handleSuccess(stream) {
     video.srcObject = stream;
+  }
+
+  function handleError(error) {
+    video.srcObject = error;
   }
 
   navigator.mediaDevices.getUserMedia(constraints).
